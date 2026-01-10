@@ -134,7 +134,11 @@ toggleBtn.addEventListener('click', () => {
 });
 
 function renderScoreboard(items) {
-  const sorted = [...items].sort((a,b) => b.rating - a.rating);
+  const sorted = [...items].sort((a, b) => {
+    if (b.rating !== a.rating) return b.rating - a.rating; // nota descendente
+    if (a.cost !== b.cost) return a.cost - b.cost;         // precio ascendente
+    return new Date(b.date) - new Date(a.date);            // más reciente primero
+  });
 
   scoreboard.innerHTML = '';
   sorted.forEach((item, index) => {
@@ -159,3 +163,4 @@ function renderScoreboard(items) {
     scoreboard.appendChild(row);
   });
 }
+
