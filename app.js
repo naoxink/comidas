@@ -4,7 +4,7 @@ fetch('data.json')
   .then(res => res.json())
   .then(json => {
     data = json;
-    renderFiltered(data);
+    renderTagFilters(data);
   });
 
 const list = document.getElementById('list');
@@ -199,5 +199,3 @@ function renderFiltered() {
   }
   update(filtered); // reutiliza tu función de orden + render
 }
-
-renderTagFilters(data)
