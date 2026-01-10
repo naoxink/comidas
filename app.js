@@ -51,3 +51,13 @@ function render(items) {
     list.appendChild(div);
   });
 }
+
+const btn = document.getElementById('themeToggle');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (prefersDark) document.body.classList.add('dark');
+
+btn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+});
