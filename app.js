@@ -30,6 +30,10 @@ function ratingClass(rating) {
   return 'low';
 }
 
+function formatPrice(cost) {
+  return `${cost.toFixed(2)} €`;
+}
+
 function render(items) {
   list.innerHTML = '';
   items.forEach(item => {
@@ -43,7 +47,8 @@ function render(items) {
       <strong>🍽️ ${item.dish}</strong>
       <div class="meta">
         <span class="rating ${rClass}">⭐ ${item.rating}/10</span>
-        🗓️ ${formatDate(item.date)}
+        · 💶 ${formatPrice(item.cost)}
+        · 🗓️ ${formatDate(item.date)}
       </div>
       <p>${item.comment}</p>
     `;
