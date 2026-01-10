@@ -20,10 +20,6 @@ search.addEventListener('input', e => {
   render(filtered);
 });
 
-function formatDate(dateStr) {
-  return new Date(dateStr).toLocaleDateString('es-ES');
-}
-
 function ratingClass(rating) {
   if (rating >= 8) return 'high';
   if (rating >= 5) return 'mid';
@@ -48,7 +44,7 @@ function render(items) {
       <div class="meta">
         <span class="rating ${rClass}">⭐ ${item.rating}/10</span>
         · 💶 ${formatPrice(item.cost)}
-        · 🗓️ ${formatDate(item.date)}
+        · 🗓️ ${item.date}
       </div>
       <p>${item.comment}</p>
     `;
