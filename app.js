@@ -125,14 +125,14 @@ function renderChart(items) {
         label: '⭐ Nota',
         data: dataChart,
         backgroundColor: dataChart.map(r => {
-          if (r >= 8) return 'linear-gradient(90deg, rgba(22,101,52,0.7), rgba(134,239,172,0.3))';
-          if (r >= 5) return 'linear-gradient(90deg, rgba(133,77,14,0.7), rgba(253,230,138,0.3))';
-          return 'linear-gradient(90deg, rgba(153,27,27,0.7), rgba(254,202,202,0.3))';
+          if (r >= 8) return 'rgba(22,101,52,0.3)';
+          if (r >= 5) return 'rgba(133,77,14,0.3)';
+          return 'rgba(153,27,27,0.3)';
         }),
         borderColor: dataChart.map(r => {
-          if (r >= 8) return 'rgba(22, 101, 52, 1)';
-          if (r >= 5) return 'rgba(133, 77, 14, 1)';
-          return 'rgba(153, 27, 27, 1)';
+          if (r >= 8) return 'rgba(22,101,52,1)';
+          if (r >= 5) return 'rgba(133,77,14,1)';
+          return 'rgba(153,27,27,1)';
         }),
         borderWidth: 1,
         borderRadius: 8,
@@ -145,31 +145,21 @@ function renderChart(items) {
         legend: { display: false },
         tooltip: {
           callbacks: {
-            label: function(context) {
-              return `${context.dataset.data[context.dataIndex]} ⭐`;
-            }
+            label: ctx => `${ctx.dataset.data[ctx.dataIndex]} ⭐`
           }
-        },
-        datalabels: {
-          anchor: 'end',
-          align: 'end',
-          color: '#111',
-          font: { weight: 'bold', size: 12 }
         }
       },
       scales: {
         y: {
           beginAtZero: true,
           max: 10,
-          ticks: {
-            stepSize: 1
-          }
+          ticks: { stepSize: 1 }
         }
       }
-    },
-    plugins: [ChartDataLabels]
+    }
   });
 }
+
 
 
 // Llamar al renderChart al actualizar
