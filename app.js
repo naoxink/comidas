@@ -4,7 +4,7 @@ fetch('data.json')
   .then(res => res.json())
   .then(json => {
     data = json;
-    update(data);
+    renderFiltered(data);
   });
 
 const list = document.getElementById('list');
@@ -70,7 +70,7 @@ btn.addEventListener('click', () => {
 });
 
 const sortSelect = document.getElementById('sort');
-sortSelect.addEventListener('change', update);
+sortSelect.addEventListener('change', renderFiltered);
 
 function renderStats(items) {
   const avg = (
@@ -199,3 +199,5 @@ function renderFiltered() {
   }
   update(filtered); // reutiliza tu función de orden + render
 }
+
+renderTagFilters(data)
