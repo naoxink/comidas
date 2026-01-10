@@ -46,7 +46,7 @@ function render(items) {
         · 💶 ${formatPrice(item.cost)}
         · 🗓️ ${item.date}
       </div>
-      <p>${item.comment}</p>
+      <p class="comment">${item.comment}</p>
     `;
     list.appendChild(div);
   });
