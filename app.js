@@ -4,8 +4,10 @@ fetch('data.json')
   .then(res => res.json())
   .then(json => {
     data = json;
-    renderTagFilters(data);
+    renderTagFilters(data);   // genera los botones de tags
+    renderFiltered(data);     // muestra la lista completa inicialmente
   });
+
 
 const list = document.getElementById('list');
 const search = document.getElementById('search');
