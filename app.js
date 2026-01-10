@@ -107,11 +107,16 @@ function renderTop(items) {
   `;
 }
 
-function update() {
-  let items = [...data];
+function update(itemsToRender) {
+  const items = itemsToRender || data; // si no se pasa, usar todos
 
+  // Orden según selector
   if (sortSelect.value === 'rating') {
-    items.sort((a, b) => b.rating - a.rating);
+    items.sort((a, b) => {
+      if (b.rating !== a.rating) return b.rating - a.rating;
+      if (a.cost !== b.cost) return a.cost - b.cost;
+      return new Date(b.date) - new Date(a.date);
+    });
   } else {
     items.sort((a, b) => new Date(b.date) - new Date(a.date));
   }
@@ -119,7 +124,9 @@ function update() {
   render(items);
   renderStats(items);
   renderTop(items);
+  if (scoreboardVisible) renderScoreboard(items);
 }
+
 
 const toggleBtn = document.getElementById('toggleScoreboard');
 const scoreboard = document.getElementById('scoreboard');
