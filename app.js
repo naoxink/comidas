@@ -4,7 +4,7 @@ fetch('data.json')
   .then(res => res.json())
   .then(json => {
     data = json;
-    render(data);
+    update(data);
   });
 
 const list = document.getElementById('list');
@@ -34,9 +34,8 @@ function render(items) {
   list.innerHTML = '';
   items.forEach(item => {
     const div = document.createElement('div');
-    div.className = 'card';
-
     const rClass = ratingClass(item.rating);
+    div.className = `card ${rClass}`;
 
     div.innerHTML = `
       <h3>${item.restaurant}</h3>
@@ -44,9 +43,12 @@ function render(items) {
       <div class="meta">
         <span class="rating ${rClass}">⭐ ${item.rating}/10</span>
         · 💶 ${formatPrice(item.cost)}
-        · 🗓️ ${item.date}
+        · 🗓️ ${formatDate(item.date)}
       </div>
-      <p class="comment">${item.comment}</p>
+      <p>${item.comment}</p>
+      <div class="tags">
+        ${item.tags?.map(t => `#${t}`).join(' ')}
+      </div>
     `;
     list.appendChild(div);
   });
@@ -67,3 +69,54 @@ btn.addEventListener('click', () => {
   btn.textContent = isDark ? '☀️' : '🌙';
 });
 
+const sortSelect = document.getElementById('sort');
+sortSelect.addEventListener('change', update);
+
+function update() {
+  let items = [...data];
+
+  if (sortSelect.value === 'rating') {
+    items.sort((a, b) => b.rating - a.rating);
+  } else {
+    items.sort((a, b) => new Date(b.date) - new Date(a.date));
+  }
+
+  render(items);
+  renderStats(items);
+  renderTop(items);
+}
+
+function renderStats(items) {
+  const avg = (
+    items.reduce((s, i) => s + i.rating, 0) / items.length
+  ).toFixed(1);
+
+  document.getElementById('stats').textContent =
+    `⭐ Nota media: ${avg}`;
+}
+
+function avgPriceByRestaurant(items) {
+  const map = {};
+  items.forEach(i => {
+    if (!map[i.restaurant]) map[i.restaurant] = [];
+    map[i.restaurant].push(i.cost);
+  });
+
+  return Object.entries(map).map(([r, prices]) => ({
+    restaurant: r,
+    avg: (prices.reduce((a,b)=>a+b,0)/prices.length).toFixed(2)
+  }));
+}
+
+function renderTop(items) {
+  const top = [...items]
+    .sort((a,b) => b.rating - a.rating)
+    .slice(0,3);
+
+  document.getElementById('top').innerHTML = `
+    <h3>🏆 Top 3 platos</h3>
+    <ol>
+      ${top.map(i => `<li>${i.dish} (${i.restaurant})</li>`).join('')}
+    </ol>
+  `;
+}

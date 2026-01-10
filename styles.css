@@ -222,3 +222,13 @@ body.dark .rating.low {
 body.dark .comment {
   color: #EEE;
 }
+
+.card.high { background: #f0fdf4; }
+.card.mid  { background: #fffbeb; }
+.card.low  { background: #fef2f2; }
+
+.tags {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #64748b;
+}
