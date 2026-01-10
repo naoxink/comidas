@@ -60,13 +60,13 @@ const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
   document.body.classList.add('dark');
-  btn.textContent = '☀️';
+  btn.textContent = '☀️ Claro';
 }
 
 btn.addEventListener('click', () => {
   const isDark = document.body.classList.toggle('dark');
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  btn.textContent = isDark ? '☀️' : '🌙';
+  btn.textContent = isDark ? '☀️ Claro' : '🌙 Oscuro';
 });
 
 const sortSelect = document.getElementById('sort');
