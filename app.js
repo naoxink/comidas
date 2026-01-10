@@ -176,26 +176,32 @@ function renderTagFilters(items) {
     span.className = 'tag-filter';
     span.textContent = tag;
 
-    if(activeTags.includes(tag)) span.classList.add('active');
+    if (activeTags.includes(tag)) span.classList.add('active');
 
     span.addEventListener('click', () => {
-      if(activeTags.includes(tag)) {
+      if (activeTags.includes(tag)) {
         activeTags = activeTags.filter(t => t !== tag);
       } else {
         activeTags.push(tag);
       }
-      renderFiltered();
       renderTagFilters(items); // refresca visual
+      renderFiltered(items);
     });
 
     container.appendChild(span);
   });
 }
 
-function renderFiltered() {
-  let filtered = [...data];
-  if(activeTags.length > 0) {
-    filtered = filtered.filter(item => (item.tags || []).some(t => activeTags.includes(t)));
+function renderFiltered(items) {
+  let filtered = items;
+
+  if (activeTags.length > 0) {
+    filtered = items.filter(item => {
+      const tags = item.tags || [];
+      // Mantener plato si **todos los tags activos** están en el item
+      return activeTags.every(t => tags.includes(t));
+    });
   }
-  update(filtered); // reutiliza tu función de orden + render
+
+  update(filtered); // tu función de render + scoreboard
 }
