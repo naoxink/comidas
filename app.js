@@ -53,11 +53,17 @@ function render(items) {
 }
 
 const btn = document.getElementById('themeToggle');
+const storedTheme = localStorage.getItem('theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-if (prefersDark) document.body.classList.add('dark');
+if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+  document.body.classList.add('dark');
+  btn.textContent = '☀️';
+}
 
 btn.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  const isDark = document.body.classList.toggle('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  btn.textContent = isDark ? '☀️' : '🌙';
 });
+
