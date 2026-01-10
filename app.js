@@ -107,62 +107,6 @@ function renderTop(items) {
   `;
 }
 
-let chart;
-
-function renderChart(items) {
-  const labels = items.map(i => i.dish);
-  const dataChart = items.map(i => i.rating);
-
-  const ctx = document.getElementById('chart').getContext('2d');
-
-  if (chart) chart.destroy();
-
-  chart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [{
-        label: '⭐ Nota',
-        data: dataChart,
-        backgroundColor: dataChart.map(r => {
-          if (r >= 8) return 'rgba(22,101,52,0.3)';
-          if (r >= 5) return 'rgba(133,77,14,0.3)';
-          return 'rgba(153,27,27,0.3)';
-        }),
-        borderColor: dataChart.map(r => {
-          if (r >= 8) return 'rgba(22,101,52,1)';
-          if (r >= 5) return 'rgba(133,77,14,1)';
-          return 'rgba(153,27,27,1)';
-        }),
-        borderWidth: 1,
-        borderRadius: 8,
-        barPercentage: 0.6
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: ctx => `${ctx.dataset.data[ctx.dataIndex]} ⭐`
-          }
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          max: 10,
-          ticks: { stepSize: 1 }
-        }
-      }
-    }
-  });
-}
-
-
-
-// Llamar al renderChart al actualizar
 function update() {
   let items = [...data];
 
@@ -175,5 +119,43 @@ function update() {
   render(items);
   renderStats(items);
   renderTop(items);
-  renderChart(items);
+}
+
+const toggleBtn = document.getElementById('toggleScoreboard');
+const scoreboard = document.getElementById('scoreboard');
+let scoreboardVisible = false;
+
+toggleBtn.addEventListener('click', () => {
+  scoreboardVisible = !scoreboardVisible;
+  scoreboard.style.display = scoreboardVisible ? 'block' : 'none';
+  toggleBtn.textContent = scoreboardVisible ? '🔽 Ocultar scoreboard' : '🏆 Mostrar scoreboard';
+
+  if (scoreboardVisible) renderScoreboard(data);
+});
+
+function renderScoreboard(items) {
+  const sorted = [...items].sort((a,b) => b.rating - a.rating);
+
+  scoreboard.innerHTML = '';
+  sorted.forEach((item, index) => {
+    const rClass = ratingClass(item.rating);
+    const row = document.createElement('div');
+    row.className = `score-row ${rClass}`;
+
+    // Top 3
+    let topClass = '';
+    let topIcon = '';
+    if(index === 0) { topClass = 'top1'; topIcon = '🏆 '; }
+    else if(index === 1) { topClass = 'top2'; topIcon = '🥈 '; }
+    else if(index === 2) { topClass = 'top3'; topIcon = '🥉 '; }
+
+    row.classList.add(topClass);
+
+    row.innerHTML = `
+      <span class="dish"><span class="top-icon">${topIcon}</span>${item.dish} (${item.restaurant})</span>
+      <span class="rating">⭐ ${item.rating}</span>
+      <span class="cost">💰 ${formatPrice(item.cost)}</span>
+    `;
+    scoreboard.appendChild(row);
+  });
 }

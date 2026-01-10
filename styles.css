@@ -265,8 +265,34 @@ body.dark .comment {
   color: #555;
 }
 
-/* Gráfico */
-#chart {
-  max-width: 100%;
-  margin-top: 24px;
+#scoreboard {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.score-row span {
+  font-weight: 600;
+}
+
+.score-row.high { background: rgba(22,101,52,0.15); }
+.score-row.mid  { background: rgba(133,77,14,0.15); }
+.score-row.low  { background: rgba(153,27,27,0.15); }
+
+.score-row .dish {
+  flex: 1 1 auto;
+}
+.score-row .rating, .score-row .cost {
+  flex: 0 0 50px;
+  text-align: right;
 }
