@@ -205,10 +205,9 @@ function renderFiltered(items) {
   if (activeTags.length > 0) {
     filtered = items.filter(item => {
       const tags = item.tags || [];
-      // Mantener plato si **todos los tags activos** están en el item
-      return activeTags.every(t => tags.includes(t));
+      return activeTags.every(t => tags.includes(t)); // AND entre tags activos
     });
   }
 
-  update(filtered); // tu función de render + scoreboard
+  update(filtered);
 }
