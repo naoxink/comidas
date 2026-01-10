@@ -223,6 +223,17 @@ body.dark .comment {
   color: #EEE;
 }
 
+body.dark button {
+  background: #020617;
+  color: #e5e7eb;
+  border-color: #334155;
+}
+
+body.dark button:hover {
+  background: #111827;
+}
+
+
 .card.high { background: #f0fdf4; }
 .card.mid  { background: #fffbeb; }
 .card.low  { background: #fef2f2; }
@@ -296,3 +307,41 @@ body.dark .comment {
   flex: 0 0 50px;
   text-align: right;
 }
+
+.top-bar {
+  display: flex;
+  justify-content: flex-start; /* cambia a flex-end si quieres que estén a la derecha */
+  gap: 12px; /* espacio entre botones */
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* para que en móvil se adapten */
+}
+
+.top-bar button {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px; /* altura uniforme */
+  transition: background 0.2s;
+}
+
+.top-bar button:hover {
+  background: #f3f4f6;
+}
+
+/* Dark mode */
+body.dark .top-bar button {
+  background: #020617;
+  color: #e5e7eb;
+  border-color: #334155;
+}
+
+body.dark .top-bar button:hover {
+  background: #111827;
+}
+
