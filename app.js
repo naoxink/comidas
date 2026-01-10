@@ -164,3 +164,38 @@ function renderScoreboard(items) {
   });
 }
 
+let activeTags = [];
+
+function renderTagFilters(items) {
+  const allTags = [...new Set(items.flatMap(i => i.tags || []))];
+  const container = document.getElementById('tagFilters');
+  container.innerHTML = '';
+
+  allTags.forEach(tag => {
+    const span = document.createElement('span');
+    span.className = 'tag-filter';
+    span.textContent = tag;
+
+    if(activeTags.includes(tag)) span.classList.add('active');
+
+    span.addEventListener('click', () => {
+      if(activeTags.includes(tag)) {
+        activeTags = activeTags.filter(t => t !== tag);
+      } else {
+        activeTags.push(tag);
+      }
+      renderFiltered();
+      renderTagFilters(items); // refresca visual
+    });
+
+    container.appendChild(span);
+  });
+}
+
+function renderFiltered() {
+  let filtered = [...data];
+  if(activeTags.length > 0) {
+    filtered = filtered.filter(item => (item.tags || []).some(t => activeTags.includes(t)));
+  }
+  update(filtered); // reutiliza tu función de orden + render
+}

@@ -344,3 +344,29 @@ body.dark .top-bar button:hover {
   background: #111827;
 }
 
+.tag-filter {
+  display: inline-block;
+  background: #e5e7eb;
+  color: #111;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin: 2px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tag-filter.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+body.dark .tag-filter {
+  background: #334155;
+  color: #e5e7eb;
+}
+
+body.dark .tag-filter.active {
+  background: #60a5fa;
+  color: #111;
+}
