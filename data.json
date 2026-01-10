@@ -6,6 +6,15 @@
     "cost": 9,
     "comment": "Muy bueno, quizás demasiada salsa. Lo suyo es comérselo todo revuelto.",
     "date": "09.01.2026",
-    "tags": ["brosa", "rápida"]
+    "tags": ["brosa", "rápida", "chowarma", "turco"]
+  },
+  {
+    "restaurant": "Antojo's Pizza",
+    "dish": "Pizza 4 estaciones",
+    "rating": 7,
+    "cost": 9.20,
+    "comment": "No está mal para el precio pero se echa de menos un poco más de contenido.",
+    "date": "15.11.2025",
+    "tags": ["brosa", "pizza", "italiano"]
   }
 ]
