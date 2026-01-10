@@ -43,7 +43,7 @@ function render(items) {
       <div class="meta">
         <span class="rating ${rClass}">⭐ ${item.rating}/10</span>
         · 💶 ${formatPrice(item.cost)}
-        · 🗓️ ${formatDate(item.date)}
+        · 🗓️ ${item.date}
       </div>
       <p>${item.comment}</p>
       <div class="tags">
