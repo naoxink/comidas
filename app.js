@@ -72,20 +72,6 @@ btn.addEventListener('click', () => {
 const sortSelect = document.getElementById('sort');
 sortSelect.addEventListener('change', update);
 
-function update() {
-  let items = [...data];
-
-  if (sortSelect.value === 'rating') {
-    items.sort((a, b) => b.rating - a.rating);
-  } else {
-    items.sort((a, b) => new Date(b.date) - new Date(a.date));
-  }
-
-  render(items);
-  renderStats(items);
-  renderTop(items);
-}
-
 function renderStats(items) {
   const avg = (
     items.reduce((s, i) => s + i.rating, 0) / items.length
@@ -119,4 +105,85 @@ function renderTop(items) {
       ${top.map(i => `<li>${i.dish} (${i.restaurant})</li>`).join('')}
     </ol>
   `;
+}
+
+let chart;
+
+function renderChart(items) {
+  const labels = items.map(i => i.dish);
+  const dataChart = items.map(i => i.rating);
+
+  const ctx = document.getElementById('chart').getContext('2d');
+
+  if (chart) chart.destroy();
+
+  chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: '⭐ Nota',
+        data: dataChart,
+        backgroundColor: dataChart.map(r => {
+          if (r >= 8) return 'linear-gradient(90deg, rgba(22,101,52,0.7), rgba(134,239,172,0.3))';
+          if (r >= 5) return 'linear-gradient(90deg, rgba(133,77,14,0.7), rgba(253,230,138,0.3))';
+          return 'linear-gradient(90deg, rgba(153,27,27,0.7), rgba(254,202,202,0.3))';
+        }),
+        borderColor: dataChart.map(r => {
+          if (r >= 8) return 'rgba(22, 101, 52, 1)';
+          if (r >= 5) return 'rgba(133, 77, 14, 1)';
+          return 'rgba(153, 27, 27, 1)';
+        }),
+        borderWidth: 1,
+        borderRadius: 8,
+        barPercentage: 0.6
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return `${context.dataset.data[context.dataIndex]} ⭐`;
+            }
+          }
+        },
+        datalabels: {
+          anchor: 'end',
+          align: 'end',
+          color: '#111',
+          font: { weight: 'bold', size: 12 }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 10,
+          ticks: {
+            stepSize: 1
+          }
+        }
+      }
+    },
+    plugins: [ChartDataLabels]
+  });
+}
+
+
+// Llamar al renderChart al actualizar
+function update() {
+  let items = [...data];
+
+  if (sortSelect.value === 'rating') {
+    items.sort((a, b) => b.rating - a.rating);
+  } else {
+    items.sort((a, b) => new Date(b.date) - new Date(a.date));
+  }
+
+  render(items);
+  renderStats(items);
+  renderTop(items);
+  renderChart(items);
 }
