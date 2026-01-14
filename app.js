@@ -119,10 +119,10 @@ function update(itemsToRender) {
     items.sort((a, b) => {
       if (b.rating !== a.rating) return b.rating - a.rating;
       if (a.cost !== b.cost) return a.cost - b.cost;
-      return new Date(b.date) - new Date(a.date);
+      return parseCustomDate(b.date) - parseCustomDate(a.date);
     });
   } else {
-    items.sort((a, b) => new Date(b.date) - new Date(a.date));
+    items.sort((a, b) => parseCustomDate(b.date) - parseCustomDate(a.date));
   }
 
   render(items);
