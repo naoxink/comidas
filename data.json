@@ -16,5 +16,32 @@
     "comment": "No está mal para el precio pero se echa de menos un poco más de contenido.",
     "date": "15.11.2025",
     "tags": ["brosa", "pizza", "italiano"]
+  },
+  {
+    "restaurant": "Lorena Café - Perchel",
+    "dish": "New cochina burguer",
+    "rating": 6,
+    "cost": 13.95,
+    "date": "12.12.2025",
+    "comment": "Está buena, pero le falta chicha un poco. Prefiero la Angus de toda la vida aunque sea un poco más cara.",
+    "tags": ["brosa", "burguer"]
+  },
+  {
+    "restaurant": "Terra mía - Molina Lario",
+    "dish": "Calzone Lasagña",
+    "cost": 15.50,
+    "rating": 4,
+    "date": "08.12.2025",
+    "comment": "Un amasijo de masa, algunos trozos incluso sin terminar de hacer, poco relleno y muy meh. No lo vuelvo a pedir. Aparte el sitio es un bullicio y mal atendido.",
+    "tags": ["brosa", "italiano", "pizza"]
+  },
+  {
+    "restaurant": "Yatay ramen",
+    "dish": "Ramen negro + Karaague curry",
+    "cost": 14.10,
+    "date": "05.12.2025",
+    "rating": 9,
+    "comment": "El mejor ramen hasta la fecha. Complementado con Karaague (añadiéndolo dentro) es brutal.",
+    "tags": ["japonés", "ramen"]
   }
 ]
