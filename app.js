@@ -3,7 +3,9 @@ let data = [];
 fetch('data.json')
   .then(res => res.json())
   .then(json => {
-    data = json;
+    data = json.sort((a, b) =>
+      parseCustomDate(b.date) - parseCustomDate(a.date)
+    );
     renderTagFilters(data);   // genera los botones de tags
     renderFiltered(data);     // muestra la lista completa inicialmente
   });
@@ -144,9 +146,9 @@ toggleBtn.addEventListener('click', () => {
 
 function renderScoreboard(items) {
   const sorted = [...items].sort((a, b) => {
-    if (b.rating !== a.rating) return b.rating - a.rating; // nota descendente
-    if (a.cost !== b.cost) return a.cost - b.cost;         // precio ascendente
-    return new Date(b.date) - new Date(a.date);            // más reciente primero
+    if (b.rating !== a.rating) return b.rating - a.rating;    // nota descendente
+    if (a.cost !== b.cost) return a.cost - b.cost;            // precio ascendente
+    return parseCustomDate(b.date) - parseCustomDate(a.date); // más reciente primero
   });
 
   scoreboard.innerHTML = '';
@@ -212,4 +214,9 @@ function renderFiltered(items) {
   }
 
   update(filtered);
+}
+
+function parseCustomDate(str) {
+  const [d, m, y] = str.split('.').map(Number);
+  return new Date(y, m - 1, d);
 }
