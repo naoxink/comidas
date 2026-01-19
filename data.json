@@ -1,5 +1,14 @@
 [
   {
+    "restaurant": "El Ombú",
+    "dish": "6 Empanadillas",
+    "cost": 16.20,
+    "date": "18.01.2026",
+    "rating": 6,
+    "comment": "En general muy caro para lo que es. Las que más me han gustado son: queso y cebolla y ternera. Mención especial a la de pollo y la de espinacas con bechamel. La de setas también se salva, pero tampoco es un manjar.",
+    "tags": ["argentino", "brosa"]
+  },
+  {
     "restaurant": "Kebabees",
     "dish": "Plato sultán (menú: +patatas +bebida)",
     "rating": 7,
