@@ -143,7 +143,7 @@ function renderScoreboard(items) {
     row.innerHTML = `
       <span class="dish"><span class="top-icon">${topIcon}</span>${item.dish} (${item.restaurant})</span>
       <span class="rating">⭐ ${item.rating}</span>
-      <span class="cost">💰 ${formatPrice(item.cost)}</span>
+      <span class="cost">💶 ${formatPrice(item.cost)}</span>
     `;
     scoreboard.appendChild(row);
   });

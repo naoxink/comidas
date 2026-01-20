@@ -303,7 +303,7 @@ body.dark button:hover {
   flex: 1 1 auto;
 }
 .score-row .rating, .score-row .cost {
-  flex: 0 0 50px;
+  flex: 0 0 120px;
   text-align: right;
 }
 
