@@ -98,36 +98,13 @@ function avgPriceByRestaurant(items) {
   }));
 }
 
-function renderTop(items) {
-  const top = [...items]
-    .sort((a,b) => b.rating - a.rating)
-    .slice(0,3);
-
-  document.getElementById('top').innerHTML = `
-    <h3>🏆 Top 3 platos</h3>
-    <ol>
-      ${top.map(i => `<li>${i.dish} (${i.restaurant})</li>`).join('')}
-    </ol>
-  `;
-}
-
 function update(itemsToRender) {
   const items = itemsToRender || data; // si no se pasa, usar todos
 
-  // Orden según selector
-  if (sortSelect.value === 'rating') {
-    items.sort((a, b) => {
-      if (b.rating !== a.rating) return b.rating - a.rating;
-      if (a.cost !== b.cost) return a.cost - b.cost;
-      return parseCustomDate(b.date) - parseCustomDate(a.date);
-    });
-  } else {
-    items.sort((a, b) => parseCustomDate(b.date) - parseCustomDate(a.date));
-  }
+  items.sort((a, b) => parseCustomDate(b.date) - parseCustomDate(a.date));
 
   render(items);
   renderStats(items);
-  renderTop(items);
   if (scoreboardVisible) renderScoreboard(items);
 }
 
