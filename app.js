@@ -73,9 +73,6 @@ btn.addEventListener('click', () => {
   btn.textContent = isDark ? '☀️ Claro' : '🌙 Oscuro';
 });
 
-const sortSelect = document.getElementById('sort');
-sortSelect.addEventListener('change', renderFiltered);
-
 function renderStats(items) {
   const avg = (
     items.reduce((s, i) => s + i.rating, 0) / items.length
