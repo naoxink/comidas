@@ -138,7 +138,7 @@ function renderScoreboard(items) {
     else if(index === 1) { topClass = 'top2'; topIcon = '🥈 '; }
     else if(index === 2) { topClass = 'top3'; topIcon = '🥉 '; }
 
-    row.classList.add(topClass);
+    if(topClass) row.classList.add(topClass);
 
     row.innerHTML = `
       <span class="dish"><span class="top-icon">${topIcon}</span>${item.dish} (${item.restaurant})</span>
