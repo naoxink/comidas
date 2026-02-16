@@ -123,7 +123,7 @@ function renderScoreboard(items) {
     if (b.rating !== a.rating) return b.rating - a.rating;    // nota descendente
     if (a.cost !== b.cost) return a.cost - b.cost;            // precio ascendente
     return parseCustomDate(b.date) - parseCustomDate(a.date); // más reciente primero
-  });
+  }).splice(0, 3);
 
   scoreboard.innerHTML = '';
   sorted.forEach((item, index) => {
