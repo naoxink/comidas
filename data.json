@@ -1,12 +1,21 @@
 [
   {
+    "restaurant": "Yatay ramen",
+    "dish": "Ramen negro + Karaague curry",
+    "cost": 14.10,
+    "date": "14.02.2026",
+    "rating": 8.8,
+    "comment": "En casa pierde, no está tan bien como en local. Trae menos caldo porque creo que no cabe lo suficiente en el tupper donde lo meten. Pedí un mochi de chocolate de postre y se ve que es casero; los tienen hechos en una neverita envueltos en papel film. Todo muy bueno.",
+    "tags": ["japonés", "ramen", "paraLlevar"]
+  },
+  {
     "restaurant": "El Ombú",
     "dish": "6 Empanadillas",
     "cost": 16.20,
     "date": "18.01.2026",
     "rating": 6,
     "comment": "En general muy caro para lo que es. Las que más me han gustado son: queso y cebolla y ternera. Mención especial a la de pollo y la de espinacas con bechamel. La de setas también se salva, pero tampoco es un manjar.",
-    "tags": ["argentino", "brosa"]
+    "tags": ["argentino", "brosa", "paraLlevar"]
   },
   {
     "restaurant": "Kebabees",
@@ -15,7 +24,7 @@
     "cost": 9,
     "comment": "Muy bueno, quizás demasiada salsa. Lo suyo es comérselo todo revuelto.",
     "date": "09.01.2026",
-    "tags": ["brosa", "rápida", "chowarma", "turco"]
+    "tags": ["brosa", "rápida", "chowarma", "turco", "paraLlevar"]
   },
   {
     "restaurant": "Antojo's Pizza",
@@ -24,7 +33,7 @@
     "cost": 9.20,
     "comment": "No está mal para el precio pero se echa de menos un poco más de contenido.",
     "date": "15.11.2025",
-    "tags": ["brosa", "pizza", "italiano"]
+    "tags": ["brosa", "pizza", "italiano", "paraLlevar"]
   },
   {
     "restaurant": "Lorena Café - Perchel",
@@ -33,7 +42,7 @@
     "cost": 13.95,
     "date": "12.12.2025",
     "comment": "Está buena, pero le falta chicha un poco. Prefiero la Angus de toda la vida aunque sea un poco más cara.",
-    "tags": ["brosa", "burguer"]
+    "tags": ["brosa", "burguer", "enLocal"]
   },
   {
     "restaurant": "Terra mía - Molina Lario",
@@ -42,7 +51,7 @@
     "rating": 4,
     "date": "08.12.2025",
     "comment": "Un amasijo de masa, algunos trozos incluso sin terminar de hacer, poco relleno y muy meh. No lo vuelvo a pedir. Aparte el sitio es un bullicio y mal atendido.",
-    "tags": ["brosa", "italiano", "pizza"]
+    "tags": ["brosa", "italiano", "pizza", "enLocal"]
   },
   {
     "restaurant": "Yatay ramen",
@@ -51,6 +60,6 @@
     "date": "05.12.2025",
     "rating": 9,
     "comment": "El mejor ramen hasta la fecha. Complementado con Karaague (añadiéndolo dentro) es brutal.",
-    "tags": ["japonés", "ramen"]
+    "tags": ["japonés", "ramen", "enLocal"]
   }
 ]
