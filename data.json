@@ -1,5 +1,14 @@
 [
   {
+    "restaurant": "La reina latina",
+    "dish": "2 pandebonos + 2 cookies",
+    "rating": 7,
+    "cost": 8,
+    "comment": "A 2€ cada cosa me parece caro, por eso le baja la nota. Los pandebonos están tremendos, las cookies quizás demasiado blandas. ",
+    "date": "17.02.2026",
+    "tags": ["paraLlevar","dulces","postres"]
+  },
+  {
     "restaurant": "Yatay ramen",
     "dish": "Ramen negro + Karaague curry",
     "cost": 14.10,
