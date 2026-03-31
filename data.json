@@ -1,5 +1,14 @@
 [
   {
+    "restaurant": "Asador de pollos padilla",
+    "dish": "Campero padilla",
+    "rating": 8,
+    "cost": 6,
+    "comment": "Brutal, un campero con todos los demás incluidos. Entra que no veas. ",
+    "date": "31.03.2026",
+    "tags": ["paraLlevar","broza"]
+  },
+  {
     "restaurant": "Rey Estambul Kebab - Calle Victoria",
     "dish": "Lamahcun",
     "rating": 7.5,
