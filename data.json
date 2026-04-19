@@ -1,5 +1,14 @@
 [
   {
+    "restaurant": "Miss Sushi",
+    "dish": "Atún Mix (24pcs) + Miss Velvet (8pcs) + Gyozas de pollo al Curry Japonés (2pcs)",
+    "rating": 6,
+    "cost": 25.45,
+    "comment": "Por lo general muy básico. Un poco meh. El mix trae casi todo maki y un roll básico de atún. El único más interesante fue el Miss Velvet que sí estaba muy bueno. Las gyozas no estaban mal pero también un poco meh. Demasiado caro si no es con descuentos (usamos uno de los combos al -50%)",
+    "date": "18.04.2026",
+    "tags": ["aDomicilio", "sushi", "japonés"]
+  },
+  {
     "restaurant": "Asador de pollos padilla",
     "dish": "Campero padilla",
     "rating": 8,
