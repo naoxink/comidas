@@ -6,7 +6,7 @@
     "cost": 14.25,
     "date": "20.05.2026",
     "comment": "La hamburguesa está muy buena, sin queja alguna. El problema es que ya no trae patatas deluxe con el cuenquito de salsa, ahora trae unas patatas fritas básicas con un sobre cutre de ketchup. Una pena.",
-    "tags": ["enLocal", "burger", "broza"]
+    "tags": ["enLocal", "hamburguesa", "broza"]
   },
   {
     "restaurant": "Miss Sushi",
@@ -96,7 +96,7 @@
     "cost": 13.95,
     "date": "12.12.2025",
     "comment": "Está buena, pero le falta chicha un poco. Prefiero la Angus de toda la vida aunque sea un poco más cara.",
-    "tags": ["brosa", "burguer", "enLocal"]
+    "tags": ["brosa", "hamburguesa", "enLocal"]
   },
   {
     "restaurant": "Terra mía - Molina Lario",
