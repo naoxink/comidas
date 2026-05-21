@@ -1,5 +1,14 @@
 [
   {
+    "restaurant": "Lorena Café - Perchel",
+    "dish": "New NY Burguer",
+    "rating": 7,
+    "cost": 14.25,
+    "date": "20.05.2026",
+    "comment": "La hamburguesa está muy buena, sin queja alguna. El problema es que ya no trae patatas deluxe con el cuenquito de salsa, ahora trae unas patatas fritas básicas con un sobre cutre de ketchup. Una pena.",
+    "tags": ["enLocal", "burger", "broza"]
+  },
+  {
     "restaurant": "Miss Sushi",
     "dish": "Atún Mix (24pcs) + Miss Velvet (8pcs) + Gyozas de pollo al Curry Japonés (2pcs)",
     "rating": 6,
