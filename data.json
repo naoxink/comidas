@@ -1,5 +1,14 @@
 [
   {
+    "restaurant": "Antojo's Pizza",
+    "dish": "Campero Pulled Pork",
+    "cost": 7.90,
+    "date": "27.05.2026",
+    "tags": ["paraLlevar", "campero", "broza"],
+    "rating": 8,
+    "comment": "Sorpresa para bien. Esperaba un campero más meh pero oye, MUY bueno. Desde que he abierto la bolsa oliendo tremendo. Al primer bocado he dicho \"un ocho\". El pulled pork está muy dulcecito, yo creo que es el mismo que usa para las pizzas (que tendría sentido). Eso sí, la \"salsa secreta\" es tan secreta que no la he notado."
+  },
+  {
     "restaurant": "Lorena Café - Perchel",
     "dish": "New NY Burguer",
     "rating": 7,
@@ -24,7 +33,7 @@
     "cost": 6,
     "comment": "Brutal, un campero con todos los demás incluidos. Entra que no veas. ",
     "date": "31.03.2026",
-    "tags": ["paraLlevar","broza"]
+    "tags": ["paraLlevar","campero","broza"]
   },
   {
     "restaurant": "Rey Estambul Kebab - Calle Victoria",
