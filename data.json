@@ -1,5 +1,14 @@
 [
   {
+    "restaurant": "Kebabees",
+    "dish": "Plato sultán",
+    "cost": 7.50,
+    "date": "17.06.2026",
+    "tags": ["paraLlevar","brosa","turco"],
+    "rating": 6.5,
+    "comment": "No sé si se les olvidó la salsa por encima o ahora sólo dan el tarrito pequeño pero antes pecaba de que sobraba salsa y ahora se echa en falta. Eso sí, sigue entrando bien."
+  },
+  {
     "restaurant": "Antojo's Pizza",
     "dish": "Campero Pulled Pork",
     "cost": 7.90,
@@ -87,7 +96,7 @@
     "cost": 9,
     "comment": "Muy bueno, quizás demasiada salsa. Lo suyo es comérselo todo revuelto.",
     "date": "09.01.2026",
-    "tags": ["brosa", "rápida", "chowarma", "turco", "paraLlevar"]
+    "tags": ["brosa", "rápida", "turco", "paraLlevar"]
   },
   {
     "restaurant": "Antojo's Pizza",
