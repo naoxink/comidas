@@ -119,13 +119,24 @@ toggleBtn.addEventListener('click', () => {
 });
 
 function renderScoreboard(items) {
-  const sorted = [...items].sort((a, b) => {
-    if (b.rating !== a.rating) return b.rating - a.rating;    // nota descendente
-    if (a.cost !== b.cost) return a.cost - b.cost;            // precio ascendente
-    return parseCustomDate(b.date) - parseCustomDate(a.date); // más reciente primero
-  }).splice(0, 3);
+  const seen = new Set();
+
+  const sorted = [...items]
+    .sort((a, b) => {
+      if (b.rating !== a.rating) return b.rating - a.rating;    // nota descendente
+      if (a.cost !== b.cost) return a.cost - b.cost;            // precio ascendente
+      return parseCustomDate(b.date) - parseCustomDate(a.date); // más reciente primero
+    })
+    .filter(item => {
+      const dish = item.dish.trim().toLowerCase();
+      if (seen.has(dish)) return false;
+      seen.add(dish);
+      return true;
+    })
+    .slice(0, 3);
 
   scoreboard.innerHTML = '';
+
   sorted.forEach((item, index) => {
     const rClass = ratingClass(item.rating);
     const row = document.createElement('div');
@@ -134,17 +145,26 @@ function renderScoreboard(items) {
     // Top 3
     let topClass = '';
     let topIcon = '';
-    if(index === 0) { topClass = 'top1'; topIcon = '🏆 '; }
-    else if(index === 1) { topClass = 'top2'; topIcon = '🥈 '; }
-    else if(index === 2) { topClass = 'top3'; topIcon = '🥉 '; }
 
-    if(topClass) row.classList.add(topClass);
+    if (index === 0) {
+      topClass = 'top1';
+      topIcon = '🏆 ';
+    } else if (index === 1) {
+      topClass = 'top2';
+      topIcon = '🥈 ';
+    } else if (index === 2) {
+      topClass = 'top3';
+      topIcon = '🥉 ';
+    }
+
+    if (topClass) row.classList.add(topClass);
 
     row.innerHTML = `
       <span class="dish"><span class="top-icon">${topIcon}</span>${item.dish} (${item.restaurant})</span>
       <span class="rating">⭐ ${item.rating}</span>
       <span class="cost">💶 ${formatPrice(item.cost)}</span>
     `;
+
     scoreboard.appendChild(row);
   });
 }
